@@ -1,2 +1,2 @@
-# anonymization-bundle
+# AnonymizationBundle
 Anonymization bundle for newer versions of symfony, supporting features such as attributes.
