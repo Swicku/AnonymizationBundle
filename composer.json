@@ -1,0 +1,14 @@
+{
+    "name": "swicku/anonymization-bundle",
+    "description": "Symfony anonymization bundle providing extendable anonymization and compliance with newest php versions",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Swicku\\AnonymizationBundle\\": "src/"
+        }
+    }
+}

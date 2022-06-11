@@ -1,0 +1,62 @@
+# config/services.yaml
+services:
+
+  Swicku\AnonymizationBundle\Annotation\AttributeReader: ~
+  swicku.attribute_reader: '@Swicku\AnonymizationBundle\Annotation\AttributeReader'
+
+  Swicku\AnonymizationBundle\Anonymizer\PropertyManipulator:
+    arguments:
+      - '@property_accessor'
+  swicku.property_manipulator: '@Swicku\AnonymizationBundle\Anonymizer\PropertyManipulator'
+
+  Swicku\AnonymizationBundle\Anonymizer\AnonymizerCollection: ~
+  swicku.anonymizer_collection: '@Swicku\AnonymizationBundle\Anonymizer\AnonymizerCollection'
+
+  Swicku\AnonymizationBundle\Anonymizer\PropertyAnonymizer:
+    arguments:
+      - '@swicku.property_manipulator'
+      - '@swicku.anonymizer_collection'
+  swicku.property_anonymizer: '@Swicku\AnonymizationBundle\Anonymizer\PropertyAnonymizer'
+
+  Swicku\AnonymizationBundle\Anonymizer\Anonymizer:
+    arguments:
+      - '@swicku.attribute_reader'
+      - '@swicku.property_anonymizer'
+  swicku.global_anonymizer:
+    alias: Swicku\AnonymizationBundle\Anonymizer\Anonymizer
+    public: true
+
+  swicku.date_time_anonymizer:
+    class: Swicku\AnonymizationBundle\Anonymizer\Type\DateTimeAnonymizer
+    tags:
+      - { name: swicku.anonymizer, type: dateTime }
+    public: false
+
+  swicku.mask_anonymizer:
+    class: Swicku\AnonymizationBundle\Anonymizer\Type\MaskAnonymizer
+    tags:
+      - { name: swicku.anonymizer, type: mask }
+    public: false
+
+  swicku.object_anonymizer:
+    class: Swicku\AnonymizationBundle\Anonymizer\Type\ObjectAnonymizer
+    arguments:
+      - '@swicku.global_anonymizer'
+    tags:
+      - { name: swicku.anonymizer, type: object }
+    public: false
+
+  swicku.collection_anonymizer:
+    class: Swicku\AnonymizationBundle\Anonymizer\Type\ArrayAnonymizer
+    arguments:
+      - '@swicku.object_anonymizer'
+    tags:
+      - { name: swicku.anonymizer, type: collection }
+    public: false
+
+  swicku.swap_anonymizer:
+    class: Swicku\AnonymizationBundle\Anonymizer\Type\SwapAnonymizer
+    tags:
+      - { name: swicku.anonymizer, type: swap }
+    public: false
+
