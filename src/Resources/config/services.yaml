@@ -5,8 +5,8 @@ services:
   swicku.attribute_reader: '@Swicku\AnonymizationBundle\Annotation\AttributeReader'
 
   Swicku\AnonymizationBundle\Anonymizer\PropertyManipulator:
-    arguments:
-      - '@property_accessor'
+#    arguments:
+#      - '@Symfony\Component\PropertyAccess\PropertyAccessor'
   swicku.property_manipulator: '@Swicku\AnonymizationBundle\Anonymizer\PropertyManipulator'
 
   Swicku\AnonymizationBundle\Anonymizer\AnonymizerCollection: ~

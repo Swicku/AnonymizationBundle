@@ -15,26 +15,15 @@ namespace Swicku\AnonymizationBundle\Anonymizer;
 
 use ReflectionProperty;
 use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Symfony\Component\PropertyAccess\PropertyAccessor;
 
-/**
- * Class PropertyManipulator.
- */
 class PropertyManipulator
 {
-    /**
-     * @var PropertyAccessorInterface
-     */
-    private $propertyAccessor;
+    private PropertyAccessor $propertyAccessor;
 
-    /**
-     * Constructs a new PropertyManipulator instance.
-     *
-     * @param PropertyAccessorInterface $propertyAccessor The property accessor instance
-     */
-    public function __construct(PropertyAccessorInterface $propertyAccessor)
+    public function __construct()
     {
-        $this->propertyAccessor = $propertyAccessor;
+        $this->propertyAccessor = new PropertyAccessor();
     }
 
     /**

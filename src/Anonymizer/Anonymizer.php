@@ -2,7 +2,6 @@
 
 namespace Swicku\AnonymizationBundle\Anonymizer;
 
-use App\Entity\Person;
 use InvalidArgumentException;
 use Swicku\AnonymizationBundle\Annotation\Anonymize;
 use ReflectionClass;
