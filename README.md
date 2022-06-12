@@ -6,5 +6,6 @@
 * Attributes only support.
 * More tests comming soon.
 * More anonymizers comming soon.
+* Soon to publish on packagist
 
 Anonymization bundle for newer versions of symfony, supporting features such as attributes.
