@@ -10,5 +10,10 @@
         "psr-4": {
             "Swicku\\AnonymizationBundle\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Swicku\\AnonymizationBundle\\Tests": "tests/"
+        }
     }
 }
